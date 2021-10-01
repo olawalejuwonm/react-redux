@@ -1,12 +1,17 @@
 
 export let user = (state, action) => {
+    console.log("in reducer", action)
     if (action.type == "login") {
-        let sucess = action.payload.success || false
-        return ({ ...state, loggedIn: sucess, user: { ...action.payload.user } })
+        let sucess = action.payload.success
+        let message = action.payload.message
+        return ({ ...state, loggedIn: sucess, message, user: { ...action.payload.user } })
     }
-    if (action.type == "signup") {
-        
+    
+    else {
+        return ({loggedIn: false})
     }
+
+    
 }
 
 

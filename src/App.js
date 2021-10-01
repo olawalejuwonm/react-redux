@@ -3,14 +3,14 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { combineReducers, createStore } from 'redux'
 import App from './MainApp'
-import * as reducers from './reducers'
-
-// const store = createStore(combineReducers(reducers))
+import {user} from './reducers'
+export const store = createStore(combineReducers({user}))
 
 const myApp = () => {
     render(
+      <Provider store={store}>
       <App />,
-      // </Provider>,
+       </Provider>,
       document.getElementById('root')
     )
   return null
